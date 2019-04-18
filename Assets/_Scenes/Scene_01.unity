@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -590,9 +590,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &274721699
@@ -732,9 +734,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &384722695
@@ -1076,9 +1080,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &495542068
@@ -1218,9 +1224,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &526307626
@@ -1437,9 +1445,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &557346943
@@ -1833,7 +1843,7 @@ GameObject:
   - component: {fileID: 695946612}
   - component: {fileID: 695946611}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: WaterWell
   m_TagString: WaterWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1863,8 +1873,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.55
+  m_Height: 8.27
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &695946613
@@ -1915,13 +1925,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 695946610}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.45189458, z: -0, w: 0.8920714}
   m_LocalPosition: {x: -39.6, y: 1.8148, z: 25}
   m_LocalScale: {x: 8.1312, y: -1.3148149, z: 8.1312}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -53.731003, z: 0}
 --- !u!1 &711810189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,9 +2095,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &768884083
@@ -2296,9 +2308,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &986519624
@@ -2497,9 +2511,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!114 &1042635009
@@ -2775,9 +2791,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &1119369309
@@ -3669,9 +3687,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &1835710986
@@ -3912,9 +3932,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &1893932486
@@ -4054,9 +4076,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &1970031698
@@ -4196,9 +4220,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &2050625670
@@ -4496,9 +4522,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CitizensAC: []
+  houses: []
   targetCitizen: 0
   targetLocation: {fileID: 0}
   targetDistAC: 0
+  waterWell: {fileID: 695946610}
   randomVector3: {x: 0, y: 0, z: 0}
   walkRadius: 0
 --- !u!195 &2144355101

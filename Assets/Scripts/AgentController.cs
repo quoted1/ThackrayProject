@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class AgentController : MonoBehaviour {
 
+    #region
     private NavMeshAgent agent;
     public GameObject[] CitizensAC;
     public GameObject[] houses;
@@ -16,6 +17,9 @@ public class AgentController : MonoBehaviour {
     public GameObject waterWell;
     private bool waterWellReached;
     private bool houseReached;
+    private bool walkingToWell;
+    private bool walkingToHouse;
+    private GameObject houseChoice;
 
     public Vector3 randomVector3;
     public int walkRadius;
@@ -23,11 +27,14 @@ public class AgentController : MonoBehaviour {
 
     private bool isClicked; //not needed yet
 
+    #endregion
+    
     private void Start()
     {
         targetIsCitizen = false;
         isClicked = false;
         waterWellReached = false;
+        walkingToWell = false;
         houseReached = false;
 
         agent = this.GetComponent<NavMeshAgent>();
@@ -64,7 +71,24 @@ public class AgentController : MonoBehaviour {
             //if the target is a citizen we need to be able to use the distance between the target and this.gameobject so when they are close enough, the target will be infected if this.gameobject is also infected
             //targetDistAC = Vector3.Distance(this.transform.position, targetLocation.position);
         }
-	}
+        
+        if (walkingToWell == true)
+        {
+            if (7.5f >= Vector3.Distance(this.transform.position, waterWell.transform.position))
+            {
+                waterWellReached = true;
+                Debug.Log("well reached_01");
+            }
+        }
+
+        if (walkingToHouse == true)
+        {
+            if (7.5f >= Vector3.Distance(this.transform.position, houseChoice.transform.position))
+            {
+                houseReached = true;
+            }
+        }
+    }
 
     /*
      for findTarget:
@@ -75,7 +99,7 @@ public class AgentController : MonoBehaviour {
     void FindTarget()
     {
         StartCoroutine(FindTargetPoint());
-        Debug.Log("target changing");
+        //Debug.Log("target changing");
     }
 
     void StopInvoke()
@@ -97,7 +121,7 @@ public class AgentController : MonoBehaviour {
         if (targetCitizen <= CitizensAC.Length)
         {
             // if randomNumber is more than 0.4 this agents target is a random citizen in the world
-            if (randomNumber >= 0.4f && CitizensAC.Length >= 0)
+            if (0.4f >= randomNumber && CitizensAC.Length >= 0)
             {
                 //Debug.Log("changing target");
                 targetCitizen = Random.Range(1, CitizensAC.Length);
@@ -110,11 +134,22 @@ public class AgentController : MonoBehaviour {
             {
                 //when searhcing for a well the agent will go to the well, wait 3 seconds and walk to a random house, as if taking water from the well to the house
                 agent.SetDestination(waterWell.transform.position);
+                walkingToWell = true;
+                //Debug.Log("walking to well");
                 yield return new WaitUntil(() => waterWellReached == true);
-                yield return new WaitForSeconds(3f);
-                agent.SetDestination(houses[Random.Range(1, houses.Length)].transform.position);
+                //Debug.Log("grabbingwater");
+                walkingToWell = false;
+                waterWellReached = false;
+                yield return new WaitForSeconds(5f);
+                //Debug.Log("walking home");
+
+                houseChoice = houses[Random.Range(1, houses.Length)];
+                agent.SetDestination(houseChoice.transform.position);
+                walkingToHouse = true;
                 yield return new WaitUntil(() => houseReached == true);
-                yield return new WaitForSeconds(3f);
+                walkingToHouse = false;
+                houseReached = false;
+                yield return new WaitForSeconds(5f);
             }
             else
             {

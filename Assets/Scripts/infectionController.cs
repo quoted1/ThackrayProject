@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class infectionController : MonoBehaviour {
 
@@ -43,6 +44,9 @@ public class infectionController : MonoBehaviour {
         //Debug.Log("infected");
         //invoke("infector every 2 seconds");
         InvokeRepeating("Infector", 5f, 5f);
+        this.GetComponent<NavMeshAgent>().speed = 3.5f;
+        this.GetComponent<NavMeshAgent>().stoppingDistance = 2f;
+        this.gameObject.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
     }
 
     private void Infector()
@@ -54,5 +58,10 @@ public class infectionController : MonoBehaviour {
                 C.GetComponent<infectionController>().SendMessage("IsInfected");
             }
         }
+        /*
+         * have a look at maybe having a bar or value that increases while they are close to a non infected,
+         * if they are increase the value of the number and when that number reaches are certain value they are also infected
+         * this way it can increase faster the more infected are nearby
+         */
     }
 }
